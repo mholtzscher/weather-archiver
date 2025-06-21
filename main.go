@@ -22,9 +22,18 @@ func ecowittHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Request received successfully")
 }
 
+func wundergroundHandler(w http.ResponseWriter, r *http.Request) {
+	query := r.URL.Query()
+	log.Printf("Received Weather Underground data: %v", query)
+
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "WU request received successfully")
+}
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("POST /ecowitt", ecowittHandler)
+	mux.HandleFunc("GET /wunderground", wundergroundHandler)
 
 	port := "8080"
 	log.Printf("Starting server on port %s", port)
