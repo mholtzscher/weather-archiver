@@ -30,10 +30,17 @@ func wundergroundHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "WU request received successfully")
 }
 
+func defaultHandler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Received request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
+	w.WriteHeader(http.StatusNotFound)
+	fmt.Fprintf(w, "404 not found")
+}
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("POST /ecowitt", ecowittHandler)
 	mux.HandleFunc("GET /wunderground", wundergroundHandler)
+	mux.HandleFunc("/", defaultHandler)
 
 	port := "8080"
 	log.Printf("Starting server on port %s", port)
