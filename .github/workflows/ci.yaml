@@ -42,5 +42,5 @@ jobs:
 
       - name: Build and publish container with Ko
         env:
-          KO_DOCKER_REPO: ghcr.io/${{ github.repository_owner }}/myapp
+          KO_DOCKER_REPO: ghcr.io/${{ github.repository_owner }}/weather-archiver
         run: ko build --bare .
