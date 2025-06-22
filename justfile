@@ -3,15 +3,10 @@ DB_DRIVER := "postgres"
 DB_STRING := "host=localhost user=postgres password=postgres dbname=weather-archiver sslmode=disable"
 MIGRATIONS_DIR := "sql/migrations"
 
-help:
-  @echo "Usage:"
-  @echo "  just migration-create name=<migration_name>"
-  @echo "  just migration-up"
-  @echo "  just migration-down"
-  @echo "  just migration-status"
-  @echo "  just sqlc-gen"
-  @echo "  just buf-gen"
-  @echo "  just run"
+setup:
+  go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+  go install connectrpc.com/connect/cmd/protoc-gen-connect-go@latest
+  go install github.com/pressly/goose/v3/cmd/goose@latest
 
 migration-create name:
   goose -dir {{MIGRATIONS_DIR}} create {{name}} sql
@@ -23,7 +18,10 @@ migration-down:
   goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} {{DB_STRING}} down
 
 migration-status:
-  goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} {{DB_STRING}} status
+  goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} "{{DB_STRING}}" status
+
+db-run:
+  docker compose -f docker-compose.yaml up -d
 
 run:
   go run cmd/server/server.go
