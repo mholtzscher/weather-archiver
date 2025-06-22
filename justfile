@@ -3,6 +3,9 @@ DB_DRIVER := "postgres"
 DB_STRING := "host=localhost user=postgres password=postgres dbname=weather-archiver sslmode=disable"
 MIGRATIONS_DIR := "sql/migrations"
 
+default:
+  just --choose
+
 setup:
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
   go install connectrpc.com/connect/cmd/protoc-gen-connect-go@latest
