@@ -10,7 +10,7 @@ import (
 )
 
 const getSensors = `-- name: GetSensors :many
-select id, type, location from sensors
+select id, source, created_at from sensors
 `
 
 func (q *Queries) GetSensors(ctx context.Context) ([]Sensor, error) {
@@ -22,7 +22,7 @@ func (q *Queries) GetSensors(ctx context.Context) ([]Sensor, error) {
 	var items []Sensor
 	for rows.Next() {
 		var i Sensor
-		if err := rows.Scan(&i.ID, &i.Type, &i.Location); err != nil {
+		if err := rows.Scan(&i.ID, &i.Source, &i.CreatedAt); err != nil {
 			return nil, err
 		}
 		items = append(items, i)

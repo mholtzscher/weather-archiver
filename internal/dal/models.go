@@ -9,7 +9,15 @@ import (
 )
 
 type Sensor struct {
-	ID       int32
-	Type     pgtype.Text
-	Location pgtype.Text
+	ID        int32
+	Source    string
+	CreatedAt pgtype.Timestamptz
+}
+
+type SensorDatum struct {
+	Time         pgtype.Timestamptz
+	SensorID     int32
+	NumericValue pgtype.Float8
+	TextValue    pgtype.Text
+	Data         []byte
 }
