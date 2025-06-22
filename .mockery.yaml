@@ -1,0 +1,10 @@
+template: testify
+template-data:
+  unroll-variadic: true
+packages:
+  github.com/mholtzscher/weather-archiver/internal/dal:
+    config:
+      dir: internal/testing/mocks
+      pkgname: mocks
+    interfaces:
+      Querier: {}
