@@ -1,10 +1,10 @@
-with-expecter: true
+template: testify
+template-data:
+  unroll-variadic: true
 packages:
   github.com/mholtzscher/weather-archiver/internal/dal:
     config:
-      dir: "internal/testing/mocks"
-      outPkg: "mocks"
+      dir: internal/testing/mocks
+      pkgname: mocks
     interfaces:
-      # select the interfaces you want mocked
-      Querier:
-        config:
+      Querier: {}

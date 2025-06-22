@@ -1,11 +1,13 @@
 -- +goose Up
 -- +goose StatementBegin
-ALTER TABLE race
-RENAME COLUMN race_date TO date;
+CREATE TABLE sensors (
+    id serial PRIMARY KEY,
+	  type varchar(50),
+	  location varchar(50)
+);
 -- +goose StatementEnd
 
 -- +goose Down
 -- +goose StatementBegin
-ALTER TABLE race
-RENAME COLUMN date TO race_date;
+DROP TABLE sensors;
 -- +goose StatementEnd

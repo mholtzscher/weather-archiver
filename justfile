@@ -10,15 +10,16 @@ setup:
   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
   go install connectrpc.com/connect/cmd/protoc-gen-connect-go@latest
   go install github.com/pressly/goose/v3/cmd/goose@latest
+  go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 
 migration-create name:
   goose -dir {{MIGRATIONS_DIR}} create {{name}} sql
 
 migration-up:
-  goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} {{DB_STRING}} up
+  goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} "{{DB_STRING}}" up
 
 migration-down:
-  goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} {{DB_STRING}} down
+  goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} "{{DB_STRING}}" down
 
 migration-status:
   goose -dir {{MIGRATIONS_DIR}} {{DB_DRIVER}} "{{DB_STRING}}" status
