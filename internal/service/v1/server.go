@@ -5,13 +5,13 @@ import (
 	"github.com/mholtzscher/weather-archiver/internal/dal"
 )
 
-func NewFormulaDataServer(db dal.Querier) *FormulaDataServer {
+func NewWeatherServer(db dal.Querier) *FormulaDataServer {
 	return &FormulaDataServer{
 		DB: db,
 	}
 }
 
 type FormulaDataServer struct {
-	apiv1.UnimplementedFormulaDataServiceHandler
+	apiv1.UnimplementedWeatherServiceHandler
 	DB dal.Querier
 }

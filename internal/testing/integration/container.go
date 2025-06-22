@@ -23,7 +23,7 @@ import (
 )
 
 type IntegrationTestHelper struct {
-	Client           apiv1connect.FormulaDataServiceClient
+	Client           apiv1connect.WeatherServiceClient
 	Container        *postgres.PostgresContainer
 	ConnectionString string
 }
@@ -56,11 +56,11 @@ func CreateIntegrationTestHelper(t *testing.T) *IntegrationTestHelper {
 	}
 
 	queries := dal.New(conn)
-	fdServer := srvV1.NewFormulaDataServer(queries)
+	fdServer := srvV1.NewWeatherServer(queries)
 
 	mux := http.NewServeMux()
 	mux.Handle(
-		apiv1connect.NewFormulaDataServiceHandler(
+		apiv1connect.NewWeatherServiceHandler(
 			fdServer,
 			connect.WithInterceptors(validator),
 		),
@@ -71,7 +71,7 @@ func CreateIntegrationTestHelper(t *testing.T) *IntegrationTestHelper {
 	t.Cleanup(server.Close)
 
 	return &IntegrationTestHelper{
-		Client:           apiv1connect.NewFormulaDataServiceClient(server.Client(), server.URL),
+		Client:           apiv1connect.NewWeatherServiceClient(server.Client(), server.URL),
 		Container:        container,
 		ConnectionString: connStr,
 	}
@@ -90,8 +90,8 @@ func runMigrations(t *testing.T, db *sql.DB) {
 }
 
 func createPostgresContainer(t *testing.T, ctx context.Context) (*postgres.PostgresContainer, string) {
-	pgContainer, err := postgres.RunContainer(ctx,
-		testcontainers.WithImage("postgres:16-alpine"),
+	pgContainer, err := postgres.Run(ctx,
+		"postgres:16-alpine",
 		postgres.WithDatabase("test-db"),
 		postgres.WithUsername("postgres"),
 		postgres.WithPassword("postgres"),

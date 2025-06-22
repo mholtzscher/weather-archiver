@@ -9,7 +9,6 @@ package apiv1
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
-	date "google.golang.org/genproto/googleapis/type/date"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -24,28 +23,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateSeasonRequest struct {
+type EcowittUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Year          int32                  `protobuf:"varint,1,opt,name=year,proto3" json:"year,omitempty"`
-	Series        string                 `protobuf:"bytes,2,opt,name=series,proto3" json:"series,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateSeasonRequest) Reset() {
-	*x = CreateSeasonRequest{}
+func (x *EcowittUploadRequest) Reset() {
+	*x = EcowittUploadRequest{}
 	mi := &file_api_v1_api_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateSeasonRequest) String() string {
+func (x *EcowittUploadRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateSeasonRequest) ProtoMessage() {}
+func (*EcowittUploadRequest) ProtoMessage() {}
 
-func (x *CreateSeasonRequest) ProtoReflect() protoreflect.Message {
+func (x *EcowittUploadRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_api_v1_api_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,46 +54,31 @@ func (x *CreateSeasonRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateSeasonRequest.ProtoReflect.Descriptor instead.
-func (*CreateSeasonRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use EcowittUploadRequest.ProtoReflect.Descriptor instead.
+func (*EcowittUploadRequest) Descriptor() ([]byte, []int) {
 	return file_api_v1_api_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateSeasonRequest) GetYear() int32 {
-	if x != nil {
-		return x.Year
-	}
-	return 0
-}
-
-func (x *CreateSeasonRequest) GetSeries() string {
-	if x != nil {
-		return x.Series
-	}
-	return ""
-}
-
-type CreateSeasonResponse struct {
+type EcowittUploadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SeasonId      int32                  `protobuf:"varint,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateSeasonResponse) Reset() {
-	*x = CreateSeasonResponse{}
+func (x *EcowittUploadResponse) Reset() {
+	*x = EcowittUploadResponse{}
 	mi := &file_api_v1_api_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateSeasonResponse) String() string {
+func (x *EcowittUploadResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateSeasonResponse) ProtoMessage() {}
+func (*EcowittUploadResponse) ProtoMessage() {}
 
-func (x *CreateSeasonResponse) ProtoReflect() protoreflect.Message {
+func (x *EcowittUploadResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_api_v1_api_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -108,39 +90,34 @@ func (x *CreateSeasonResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateSeasonResponse.ProtoReflect.Descriptor instead.
-func (*CreateSeasonResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use EcowittUploadResponse.ProtoReflect.Descriptor instead.
+func (*EcowittUploadResponse) Descriptor() ([]byte, []int) {
 	return file_api_v1_api_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateSeasonResponse) GetSeasonId() int32 {
-	if x != nil {
-		return x.SeasonId
-	}
-	return 0
-}
-
-type GetSeasonByIdRequest struct {
+type WeatherUndergroundUploadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SeasonId      int32                  `protobuf:"varint,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	Dateutc       string                 `protobuf:"bytes,3,opt,name=dateutc,proto3" json:"dateutc,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSeasonByIdRequest) Reset() {
-	*x = GetSeasonByIdRequest{}
+func (x *WeatherUndergroundUploadRequest) Reset() {
+	*x = WeatherUndergroundUploadRequest{}
 	mi := &file_api_v1_api_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSeasonByIdRequest) String() string {
+func (x *WeatherUndergroundUploadRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSeasonByIdRequest) ProtoMessage() {}
+func (*WeatherUndergroundUploadRequest) ProtoMessage() {}
 
-func (x *GetSeasonByIdRequest) ProtoReflect() protoreflect.Message {
+func (x *WeatherUndergroundUploadRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_api_v1_api_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -152,39 +129,52 @@ func (x *GetSeasonByIdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSeasonByIdRequest.ProtoReflect.Descriptor instead.
-func (*GetSeasonByIdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use WeatherUndergroundUploadRequest.ProtoReflect.Descriptor instead.
+func (*WeatherUndergroundUploadRequest) Descriptor() ([]byte, []int) {
 	return file_api_v1_api_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetSeasonByIdRequest) GetSeasonId() int32 {
+func (x *WeatherUndergroundUploadRequest) GetId() string {
 	if x != nil {
-		return x.SeasonId
+		return x.Id
 	}
-	return 0
+	return ""
 }
 
-type GetSeasonByIdResponse struct {
+func (x *WeatherUndergroundUploadRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+func (x *WeatherUndergroundUploadRequest) GetDateutc() string {
+	if x != nil {
+		return x.Dateutc
+	}
+	return ""
+}
+
+type WeatherUndergroundUploadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Season        *Season                `protobuf:"bytes,1,opt,name=season,proto3" json:"season,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSeasonByIdResponse) Reset() {
-	*x = GetSeasonByIdResponse{}
+func (x *WeatherUndergroundUploadResponse) Reset() {
+	*x = WeatherUndergroundUploadResponse{}
 	mi := &file_api_v1_api_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSeasonByIdResponse) String() string {
+func (x *WeatherUndergroundUploadResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSeasonByIdResponse) ProtoMessage() {}
+func (*WeatherUndergroundUploadResponse) ProtoMessage() {}
 
-func (x *GetSeasonByIdResponse) ProtoReflect() protoreflect.Message {
+func (x *WeatherUndergroundUploadResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_api_v1_api_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -196,971 +186,26 @@ func (x *GetSeasonByIdResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSeasonByIdResponse.ProtoReflect.Descriptor instead.
-func (*GetSeasonByIdResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use WeatherUndergroundUploadResponse.ProtoReflect.Descriptor instead.
+func (*WeatherUndergroundUploadResponse) Descriptor() ([]byte, []int) {
 	return file_api_v1_api_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetSeasonByIdResponse) GetSeason() *Season {
-	if x != nil {
-		return x.Season
-	}
-	return nil
-}
-
-type GetAllSeasonsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllSeasonsRequest) Reset() {
-	*x = GetAllSeasonsRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllSeasonsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllSeasonsRequest) ProtoMessage() {}
-
-func (x *GetAllSeasonsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllSeasonsRequest.ProtoReflect.Descriptor instead.
-func (*GetAllSeasonsRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{4}
-}
-
-type GetAllSeasonsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Seasons       []*Season              `protobuf:"bytes,1,rep,name=seasons,proto3" json:"seasons,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllSeasonsResponse) Reset() {
-	*x = GetAllSeasonsResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllSeasonsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllSeasonsResponse) ProtoMessage() {}
-
-func (x *GetAllSeasonsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllSeasonsResponse.ProtoReflect.Descriptor instead.
-func (*GetAllSeasonsResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetAllSeasonsResponse) GetSeasons() []*Season {
-	if x != nil {
-		return x.Seasons
-	}
-	return nil
-}
-
-type CreateDriverRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	FirstName     string                 `protobuf:"bytes,1,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
-	LastName      string                 `protobuf:"bytes,2,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
-	PlaceOfBirth  string                 `protobuf:"bytes,3,opt,name=place_of_birth,json=placeOfBirth,proto3" json:"place_of_birth,omitempty"`
-	DateOfBirth   *date.Date             `protobuf:"bytes,4,opt,name=date_of_birth,json=dateOfBirth,proto3" json:"date_of_birth,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateDriverRequest) Reset() {
-	*x = CreateDriverRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateDriverRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateDriverRequest) ProtoMessage() {}
-
-func (x *CreateDriverRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateDriverRequest.ProtoReflect.Descriptor instead.
-func (*CreateDriverRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *CreateDriverRequest) GetFirstName() string {
-	if x != nil {
-		return x.FirstName
-	}
-	return ""
-}
-
-func (x *CreateDriverRequest) GetLastName() string {
-	if x != nil {
-		return x.LastName
-	}
-	return ""
-}
-
-func (x *CreateDriverRequest) GetPlaceOfBirth() string {
-	if x != nil {
-		return x.PlaceOfBirth
-	}
-	return ""
-}
-
-func (x *CreateDriverRequest) GetDateOfBirth() *date.Date {
-	if x != nil {
-		return x.DateOfBirth
-	}
-	return nil
-}
-
-type CreateDriverResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	DriverId      int32                  `protobuf:"varint,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateDriverResponse) Reset() {
-	*x = CreateDriverResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateDriverResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateDriverResponse) ProtoMessage() {}
-
-func (x *CreateDriverResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateDriverResponse.ProtoReflect.Descriptor instead.
-func (*CreateDriverResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *CreateDriverResponse) GetDriverId() int32 {
-	if x != nil {
-		return x.DriverId
-	}
-	return 0
-}
-
-type GetDriverByIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	DriverId      int32                  `protobuf:"varint,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDriverByIdRequest) Reset() {
-	*x = GetDriverByIdRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDriverByIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDriverByIdRequest) ProtoMessage() {}
-
-func (x *GetDriverByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDriverByIdRequest.ProtoReflect.Descriptor instead.
-func (*GetDriverByIdRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *GetDriverByIdRequest) GetDriverId() int32 {
-	if x != nil {
-		return x.DriverId
-	}
-	return 0
-}
-
-type GetDriverByIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Driver        *Driver                `protobuf:"bytes,1,opt,name=driver,proto3" json:"driver,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDriverByIdResponse) Reset() {
-	*x = GetDriverByIdResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDriverByIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDriverByIdResponse) ProtoMessage() {}
-
-func (x *GetDriverByIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDriverByIdResponse.ProtoReflect.Descriptor instead.
-func (*GetDriverByIdResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetDriverByIdResponse) GetDriver() *Driver {
-	if x != nil {
-		return x.Driver
-	}
-	return nil
-}
-
-type CreateTeamRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Base          string                 `protobuf:"bytes,2,opt,name=base,proto3" json:"base,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateTeamRequest) Reset() {
-	*x = CreateTeamRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateTeamRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateTeamRequest) ProtoMessage() {}
-
-func (x *CreateTeamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateTeamRequest.ProtoReflect.Descriptor instead.
-func (*CreateTeamRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *CreateTeamRequest) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *CreateTeamRequest) GetBase() string {
-	if x != nil {
-		return x.Base
-	}
-	return ""
-}
-
-type CreateTeamResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	TeamId        int32                  `protobuf:"varint,1,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateTeamResponse) Reset() {
-	*x = CreateTeamResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateTeamResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateTeamResponse) ProtoMessage() {}
-
-func (x *CreateTeamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateTeamResponse.ProtoReflect.Descriptor instead.
-func (*CreateTeamResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *CreateTeamResponse) GetTeamId() int32 {
-	if x != nil {
-		return x.TeamId
-	}
-	return 0
-}
-
-type CreateRaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SeasonId      int32                  `protobuf:"varint,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Location      string                 `protobuf:"bytes,3,opt,name=location,proto3" json:"location,omitempty"`
-	Date          *date.Date             `protobuf:"bytes,4,opt,name=date,proto3" json:"date,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateRaceRequest) Reset() {
-	*x = CreateRaceRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateRaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateRaceRequest) ProtoMessage() {}
-
-func (x *CreateRaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateRaceRequest.ProtoReflect.Descriptor instead.
-func (*CreateRaceRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *CreateRaceRequest) GetSeasonId() int32 {
-	if x != nil {
-		return x.SeasonId
-	}
-	return 0
-}
-
-func (x *CreateRaceRequest) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *CreateRaceRequest) GetLocation() string {
-	if x != nil {
-		return x.Location
-	}
-	return ""
-}
-
-func (x *CreateRaceRequest) GetDate() *date.Date {
-	if x != nil {
-		return x.Date
-	}
-	return nil
-}
-
-type CreateRaceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RaceId        int32                  `protobuf:"varint,1,opt,name=race_id,json=raceId,proto3" json:"race_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateRaceResponse) Reset() {
-	*x = CreateRaceResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateRaceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateRaceResponse) ProtoMessage() {}
-
-func (x *CreateRaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateRaceResponse.ProtoReflect.Descriptor instead.
-func (*CreateRaceResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *CreateRaceResponse) GetRaceId() int32 {
-	if x != nil {
-		return x.RaceId
-	}
-	return 0
-}
-
-type GetRaceByIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RaceId        int32                  `protobuf:"varint,1,opt,name=race_id,json=raceId,proto3" json:"race_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRaceByIdRequest) Reset() {
-	*x = GetRaceByIdRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRaceByIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRaceByIdRequest) ProtoMessage() {}
-
-func (x *GetRaceByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRaceByIdRequest.ProtoReflect.Descriptor instead.
-func (*GetRaceByIdRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *GetRaceByIdRequest) GetRaceId() int32 {
-	if x != nil {
-		return x.RaceId
-	}
-	return 0
-}
-
-type GetRaceByIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Race          *Race                  `protobuf:"bytes,1,opt,name=race,proto3" json:"race,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRaceByIdResponse) Reset() {
-	*x = GetRaceByIdResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRaceByIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRaceByIdResponse) ProtoMessage() {}
-
-func (x *GetRaceByIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRaceByIdResponse.ProtoReflect.Descriptor instead.
-func (*GetRaceByIdResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetRaceByIdResponse) GetRace() *Race {
-	if x != nil {
-		return x.Race
-	}
-	return nil
-}
-
-type CreateResultRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RaceId        int32                  `protobuf:"varint,1,opt,name=race_id,json=raceId,proto3" json:"race_id,omitempty"`
-	DriverId      int32                  `protobuf:"varint,2,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
-	TeamId        int32                  `protobuf:"varint,3,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
-	Position      int32                  `protobuf:"varint,4,opt,name=position,proto3" json:"position,omitempty"`
-	Points        float64                `protobuf:"fixed64,5,opt,name=points,proto3" json:"points,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateResultRequest) Reset() {
-	*x = CreateResultRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateResultRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateResultRequest) ProtoMessage() {}
-
-func (x *CreateResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateResultRequest.ProtoReflect.Descriptor instead.
-func (*CreateResultRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *CreateResultRequest) GetRaceId() int32 {
-	if x != nil {
-		return x.RaceId
-	}
-	return 0
-}
-
-func (x *CreateResultRequest) GetDriverId() int32 {
-	if x != nil {
-		return x.DriverId
-	}
-	return 0
-}
-
-func (x *CreateResultRequest) GetTeamId() int32 {
-	if x != nil {
-		return x.TeamId
-	}
-	return 0
-}
-
-func (x *CreateResultRequest) GetPosition() int32 {
-	if x != nil {
-		return x.Position
-	}
-	return 0
-}
-
-func (x *CreateResultRequest) GetPoints() float64 {
-	if x != nil {
-		return x.Points
-	}
-	return 0
-}
-
-type CreateResultResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ResultId      int32                  `protobuf:"varint,1,opt,name=result_id,json=resultId,proto3" json:"result_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateResultResponse) Reset() {
-	*x = CreateResultResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateResultResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateResultResponse) ProtoMessage() {}
-
-func (x *CreateResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateResultResponse.ProtoReflect.Descriptor instead.
-func (*CreateResultResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *CreateResultResponse) GetResultId() int32 {
-	if x != nil {
-		return x.ResultId
-	}
-	return 0
-}
-
-type GetResultByIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ResultId      int32                  `protobuf:"varint,1,opt,name=result_id,json=resultId,proto3" json:"result_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResultByIdRequest) Reset() {
-	*x = GetResultByIdRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResultByIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResultByIdRequest) ProtoMessage() {}
-
-func (x *GetResultByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResultByIdRequest.ProtoReflect.Descriptor instead.
-func (*GetResultByIdRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *GetResultByIdRequest) GetResultId() int32 {
-	if x != nil {
-		return x.ResultId
-	}
-	return 0
-}
-
-type GetResultByIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        *Result                `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResultByIdResponse) Reset() {
-	*x = GetResultByIdResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResultByIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResultByIdResponse) ProtoMessage() {}
-
-func (x *GetResultByIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResultByIdResponse.ProtoReflect.Descriptor instead.
-func (*GetResultByIdResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetResultByIdResponse) GetResult() *Result {
-	if x != nil {
-		return x.Result
-	}
-	return nil
-}
-
-type GetResultsByRaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RaceId        int32                  `protobuf:"varint,1,opt,name=race_id,json=raceId,proto3" json:"race_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResultsByRaceRequest) Reset() {
-	*x = GetResultsByRaceRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResultsByRaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResultsByRaceRequest) ProtoMessage() {}
-
-func (x *GetResultsByRaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResultsByRaceRequest.ProtoReflect.Descriptor instead.
-func (*GetResultsByRaceRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *GetResultsByRaceRequest) GetRaceId() int32 {
-	if x != nil {
-		return x.RaceId
-	}
-	return 0
-}
-
-type GetResultsByRaceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Results       []*Result              `protobuf:"bytes,1,rep,name=results,proto3" json:"results,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResultsByRaceResponse) Reset() {
-	*x = GetResultsByRaceResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResultsByRaceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResultsByRaceResponse) ProtoMessage() {}
-
-func (x *GetResultsByRaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResultsByRaceResponse.ProtoReflect.Descriptor instead.
-func (*GetResultsByRaceResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetResultsByRaceResponse) GetResults() []*Result {
-	if x != nil {
-		return x.Results
-	}
-	return nil
 }
 
 var File_api_v1_api_proto protoreflect.FileDescriptor
 
 const file_api_v1_api_proto_rawDesc = "" +
 	"\n" +
-	"\x10api/v1/api.proto\x12\x06api.v1\x1a\x13api/v1/models.proto\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x16google/type/date.proto\"V\n" +
-	"\x13CreateSeasonRequest\x12\x1f\n" +
-	"\x04year\x18\x01 \x01(\x05B\v\xbaH\b\x1a\x06\x18\xb4\x10 \xec\x0eR\x04year\x12\x1e\n" +
-	"\x06series\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06series\"3\n" +
-	"\x14CreateSeasonResponse\x12\x1b\n" +
-	"\tseason_id\x18\x01 \x01(\x05R\bseasonId\"<\n" +
-	"\x14GetSeasonByIdRequest\x12$\n" +
-	"\tseason_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\bseasonId\"?\n" +
-	"\x15GetSeasonByIdResponse\x12&\n" +
-	"\x06season\x18\x01 \x01(\v2\x0e.api.v1.SeasonR\x06season\"\x16\n" +
-	"\x14GetAllSeasonsRequest\"A\n" +
-	"\x15GetAllSeasonsResponse\x12(\n" +
-	"\aseasons\x18\x01 \x03(\v2\x0e.api.v1.SeasonR\aseasons\"\xe3\x03\n" +
-	"\x13CreateDriverRequest\x12%\n" +
-	"\n" +
-	"first_name\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tfirstName\x12#\n" +
-	"\tlast_name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\blastName\x12,\n" +
-	"\x0eplace_of_birth\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fplaceOfBirth\x12=\n" +
-	"\rdate_of_birth\x18\x04 \x01(\v2\x11.google.type.DateB\x06\xbaH\x03\xc8\x01\x01R\vdateOfBirth:\x92\x02\xbaH\x8e\x02\x1aX\n" +
-	"\x16create_driver_dob_year\x12 the date of birth must have year\x1a\x1chas(this.date_of_birth.year)\x1a[\n" +
-	"\x17create_driver_dob_month\x12!the date of birth must have month\x1a\x1dhas(this.date_of_birth.month)\x1aU\n" +
-	"\x15create_driver_dob_day\x12\x1fthe date of birth must have day\x1a\x1bhas(this.date_of_birth.day)\"3\n" +
-	"\x14CreateDriverResponse\x12\x1b\n" +
-	"\tdriver_id\x18\x01 \x01(\x05R\bdriverId\"<\n" +
-	"\x14GetDriverByIdRequest\x12$\n" +
-	"\tdriver_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\bdriverId\"?\n" +
-	"\x15GetDriverByIdResponse\x12&\n" +
-	"\x06driver\x18\x01 \x01(\v2\x0e.api.v1.DriverR\x06driver\"K\n" +
-	"\x11CreateTeamRequest\x12\x1a\n" +
-	"\x04name\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04name\x12\x1a\n" +
-	"\x04base\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04base\"-\n" +
-	"\x12CreateTeamResponse\x12\x17\n" +
-	"\ateam_id\x18\x01 \x01(\x05R\x06teamId\"\x8d\x03\n" +
-	"\x11CreateRaceRequest\x12$\n" +
-	"\tseason_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\bseasonId\x12\x1a\n" +
-	"\x04name\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04name\x12\"\n" +
-	"\blocation\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\blocation\x12-\n" +
-	"\x04date\x18\x04 \x01(\v2\x11.google.type.DateB\x06\xbaH\x03\xc8\x01\x01R\x04date:\xe2\x01\xbaH\xde\x01\x1aH\n" +
-	"\x10create_race_year\x12\x1fthe date of race must have year\x1a\x13has(this.date.year)\x1aK\n" +
-	"\x11create_race_month\x12 the date of race must have month\x1a\x14has(this.date.month)\x1aE\n" +
-	"\x0fcreate_race_day\x12\x1ethe date of race must have day\x1a\x12has(this.date.day)\"-\n" +
-	"\x12CreateRaceResponse\x12\x17\n" +
-	"\arace_id\x18\x01 \x01(\x05R\x06raceId\"6\n" +
-	"\x12GetRaceByIdRequest\x12 \n" +
-	"\arace_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\x06raceId\"7\n" +
-	"\x13GetRaceByIdResponse\x12 \n" +
-	"\x04race\x18\x01 \x01(\v2\f.api.v1.RaceR\x04race\"\xd7\x01\n" +
-	"\x13CreateResultRequest\x12 \n" +
-	"\arace_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\x06raceId\x12$\n" +
-	"\tdriver_id\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\bdriverId\x12 \n" +
-	"\ateam_id\x18\x03 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\x06teamId\x12%\n" +
-	"\bposition\x18\x04 \x01(\x05B\t\xbaH\x06\x1a\x04\x18\x14 \x00R\bposition\x12/\n" +
-	"\x06points\x18\x05 \x01(\x01B\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00:@)\x00\x00\x00\x00\x00\x00\x00\x00R\x06points\"3\n" +
-	"\x14CreateResultResponse\x12\x1b\n" +
-	"\tresult_id\x18\x01 \x01(\x05R\bresultId\"<\n" +
-	"\x14GetResultByIdRequest\x12$\n" +
-	"\tresult_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\bresultId\"?\n" +
-	"\x15GetResultByIdResponse\x12&\n" +
-	"\x06result\x18\x01 \x01(\v2\x0e.api.v1.ResultR\x06result\";\n" +
-	"\x17GetResultsByRaceRequest\x12 \n" +
-	"\arace_id\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02 \x00R\x06raceId\"D\n" +
-	"\x18GetResultsByRaceResponse\x12(\n" +
-	"\aresults\x18\x01 \x03(\v2\x0e.api.v1.ResultR\aresults2\x83\t\n" +
-	"\x12FormulaDataService\x12a\n" +
-	"\fCreateSeason\x12\x1b.api.v1.CreateSeasonRequest\x1a\x1c.api.v1.CreateSeasonResponse\"\x16\x82\xd3\xe4\x93\x02\x10:\x01*\"\v/v1/seasons\x12m\n" +
-	"\rGetSeasonById\x12\x1c.api.v1.GetSeasonByIdRequest\x1a\x1d.api.v1.GetSeasonByIdResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1/seasons/{season_id}\x12a\n" +
-	"\rGetAllSeasons\x12\x1c.api.v1.GetAllSeasonsRequest\x1a\x1d.api.v1.GetAllSeasonsResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\v/v1/seasons\x12a\n" +
-	"\fCreateDriver\x12\x1b.api.v1.CreateDriverRequest\x1a\x1c.api.v1.CreateDriverResponse\"\x16\x82\xd3\xe4\x93\x02\x10:\x01*\"\v/v1/drivers\x12m\n" +
-	"\rGetDriverById\x12\x1c.api.v1.GetDriverByIdRequest\x1a\x1d.api.v1.GetDriverByIdResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1/drivers/{driver_id}\x12Y\n" +
-	"\n" +
-	"CreateTeam\x12\x19.api.v1.CreateTeamRequest\x1a\x1a.api.v1.CreateTeamResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/teams\x12Y\n" +
-	"\n" +
-	"CreateRace\x12\x19.api.v1.CreateRaceRequest\x1a\x1a.api.v1.CreateRaceResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/races\x12c\n" +
-	"\vGetRaceById\x12\x1a.api.v1.GetRaceByIdRequest\x1a\x1b.api.v1.GetRaceByIdResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/races/{race_id}\x12a\n" +
-	"\fCreateResult\x12\x1b.api.v1.CreateResultRequest\x1a\x1c.api.v1.CreateResultResponse\"\x16\x82\xd3\xe4\x93\x02\x10:\x01*\"\v/v1/results\x12m\n" +
-	"\rGetResultById\x12\x1c.api.v1.GetResultByIdRequest\x1a\x1d.api.v1.GetResultByIdResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1/results/{result_id}\x12y\n" +
-	"\x10GetResultsByRace\x12\x1f.api.v1.GetResultsByRaceRequest\x1a .api.v1.GetResultsByRaceResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/results/race/{race_id}B:Z8github.com/mholtzscher/weather-archiver/gen/api/v1;apiv1b\x06proto3"
+	"\x10api/v1/api.proto\x12\x06api.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/api/annotations.proto\"\x16\n" +
+	"\x14EcowittUploadRequest\"\x17\n" +
+	"\x15EcowittUploadResponse\"\x7f\n" +
+	"\x1fWeatherUndergroundUploadRequest\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\"\n" +
+	"\bpassword\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpassword\x12 \n" +
+	"\adateutc\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\adateutc\"\"\n" +
+	" WeatherUndergroundUploadResponse2\x8b\x02\n" +
+	"\x0eWeatherService\x12l\n" +
+	"\rEcowittUpload\x12\x1c.api.v1.EcowittUploadRequest\x1a\x1d.api.v1.EcowittUploadResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/v1/weather/ecowitt\x12\x8a\x01\n" +
+	"\x18WeatherUndergroundUpload\x12'.api.v1.WeatherUndergroundUploadRequest\x1a(.api.v1.WeatherUndergroundUploadResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/weather/ecowittB:Z8github.com/mholtzscher/weather-archiver/gen/api/v1;apiv1b\x06proto3"
 
 var (
 	file_api_v1_api_proto_rawDescOnce sync.Once
@@ -1174,72 +219,23 @@ func file_api_v1_api_proto_rawDescGZIP() []byte {
 	return file_api_v1_api_proto_rawDescData
 }
 
-var file_api_v1_api_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_api_v1_api_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_api_v1_api_proto_goTypes = []any{
-	(*CreateSeasonRequest)(nil),      // 0: api.v1.CreateSeasonRequest
-	(*CreateSeasonResponse)(nil),     // 1: api.v1.CreateSeasonResponse
-	(*GetSeasonByIdRequest)(nil),     // 2: api.v1.GetSeasonByIdRequest
-	(*GetSeasonByIdResponse)(nil),    // 3: api.v1.GetSeasonByIdResponse
-	(*GetAllSeasonsRequest)(nil),     // 4: api.v1.GetAllSeasonsRequest
-	(*GetAllSeasonsResponse)(nil),    // 5: api.v1.GetAllSeasonsResponse
-	(*CreateDriverRequest)(nil),      // 6: api.v1.CreateDriverRequest
-	(*CreateDriverResponse)(nil),     // 7: api.v1.CreateDriverResponse
-	(*GetDriverByIdRequest)(nil),     // 8: api.v1.GetDriverByIdRequest
-	(*GetDriverByIdResponse)(nil),    // 9: api.v1.GetDriverByIdResponse
-	(*CreateTeamRequest)(nil),        // 10: api.v1.CreateTeamRequest
-	(*CreateTeamResponse)(nil),       // 11: api.v1.CreateTeamResponse
-	(*CreateRaceRequest)(nil),        // 12: api.v1.CreateRaceRequest
-	(*CreateRaceResponse)(nil),       // 13: api.v1.CreateRaceResponse
-	(*GetRaceByIdRequest)(nil),       // 14: api.v1.GetRaceByIdRequest
-	(*GetRaceByIdResponse)(nil),      // 15: api.v1.GetRaceByIdResponse
-	(*CreateResultRequest)(nil),      // 16: api.v1.CreateResultRequest
-	(*CreateResultResponse)(nil),     // 17: api.v1.CreateResultResponse
-	(*GetResultByIdRequest)(nil),     // 18: api.v1.GetResultByIdRequest
-	(*GetResultByIdResponse)(nil),    // 19: api.v1.GetResultByIdResponse
-	(*GetResultsByRaceRequest)(nil),  // 20: api.v1.GetResultsByRaceRequest
-	(*GetResultsByRaceResponse)(nil), // 21: api.v1.GetResultsByRaceResponse
-	(*Season)(nil),                   // 22: api.v1.Season
-	(*date.Date)(nil),                // 23: google.type.Date
-	(*Driver)(nil),                   // 24: api.v1.Driver
-	(*Race)(nil),                     // 25: api.v1.Race
-	(*Result)(nil),                   // 26: api.v1.Result
+	(*EcowittUploadRequest)(nil),             // 0: api.v1.EcowittUploadRequest
+	(*EcowittUploadResponse)(nil),            // 1: api.v1.EcowittUploadResponse
+	(*WeatherUndergroundUploadRequest)(nil),  // 2: api.v1.WeatherUndergroundUploadRequest
+	(*WeatherUndergroundUploadResponse)(nil), // 3: api.v1.WeatherUndergroundUploadResponse
 }
 var file_api_v1_api_proto_depIdxs = []int32{
-	22, // 0: api.v1.GetSeasonByIdResponse.season:type_name -> api.v1.Season
-	22, // 1: api.v1.GetAllSeasonsResponse.seasons:type_name -> api.v1.Season
-	23, // 2: api.v1.CreateDriverRequest.date_of_birth:type_name -> google.type.Date
-	24, // 3: api.v1.GetDriverByIdResponse.driver:type_name -> api.v1.Driver
-	23, // 4: api.v1.CreateRaceRequest.date:type_name -> google.type.Date
-	25, // 5: api.v1.GetRaceByIdResponse.race:type_name -> api.v1.Race
-	26, // 6: api.v1.GetResultByIdResponse.result:type_name -> api.v1.Result
-	26, // 7: api.v1.GetResultsByRaceResponse.results:type_name -> api.v1.Result
-	0,  // 8: api.v1.FormulaDataService.CreateSeason:input_type -> api.v1.CreateSeasonRequest
-	2,  // 9: api.v1.FormulaDataService.GetSeasonById:input_type -> api.v1.GetSeasonByIdRequest
-	4,  // 10: api.v1.FormulaDataService.GetAllSeasons:input_type -> api.v1.GetAllSeasonsRequest
-	6,  // 11: api.v1.FormulaDataService.CreateDriver:input_type -> api.v1.CreateDriverRequest
-	8,  // 12: api.v1.FormulaDataService.GetDriverById:input_type -> api.v1.GetDriverByIdRequest
-	10, // 13: api.v1.FormulaDataService.CreateTeam:input_type -> api.v1.CreateTeamRequest
-	12, // 14: api.v1.FormulaDataService.CreateRace:input_type -> api.v1.CreateRaceRequest
-	14, // 15: api.v1.FormulaDataService.GetRaceById:input_type -> api.v1.GetRaceByIdRequest
-	16, // 16: api.v1.FormulaDataService.CreateResult:input_type -> api.v1.CreateResultRequest
-	18, // 17: api.v1.FormulaDataService.GetResultById:input_type -> api.v1.GetResultByIdRequest
-	20, // 18: api.v1.FormulaDataService.GetResultsByRace:input_type -> api.v1.GetResultsByRaceRequest
-	1,  // 19: api.v1.FormulaDataService.CreateSeason:output_type -> api.v1.CreateSeasonResponse
-	3,  // 20: api.v1.FormulaDataService.GetSeasonById:output_type -> api.v1.GetSeasonByIdResponse
-	5,  // 21: api.v1.FormulaDataService.GetAllSeasons:output_type -> api.v1.GetAllSeasonsResponse
-	7,  // 22: api.v1.FormulaDataService.CreateDriver:output_type -> api.v1.CreateDriverResponse
-	9,  // 23: api.v1.FormulaDataService.GetDriverById:output_type -> api.v1.GetDriverByIdResponse
-	11, // 24: api.v1.FormulaDataService.CreateTeam:output_type -> api.v1.CreateTeamResponse
-	13, // 25: api.v1.FormulaDataService.CreateRace:output_type -> api.v1.CreateRaceResponse
-	15, // 26: api.v1.FormulaDataService.GetRaceById:output_type -> api.v1.GetRaceByIdResponse
-	17, // 27: api.v1.FormulaDataService.CreateResult:output_type -> api.v1.CreateResultResponse
-	19, // 28: api.v1.FormulaDataService.GetResultById:output_type -> api.v1.GetResultByIdResponse
-	21, // 29: api.v1.FormulaDataService.GetResultsByRace:output_type -> api.v1.GetResultsByRaceResponse
-	19, // [19:30] is the sub-list for method output_type
-	8,  // [8:19] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	0, // 0: api.v1.WeatherService.EcowittUpload:input_type -> api.v1.EcowittUploadRequest
+	2, // 1: api.v1.WeatherService.WeatherUndergroundUpload:input_type -> api.v1.WeatherUndergroundUploadRequest
+	1, // 2: api.v1.WeatherService.EcowittUpload:output_type -> api.v1.EcowittUploadResponse
+	3, // 3: api.v1.WeatherService.WeatherUndergroundUpload:output_type -> api.v1.WeatherUndergroundUploadResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_api_v1_api_proto_init() }
@@ -1247,14 +243,13 @@ func file_api_v1_api_proto_init() {
 	if File_api_v1_api_proto != nil {
 		return
 	}
-	file_api_v1_models_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_v1_api_proto_rawDesc), len(file_api_v1_api_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

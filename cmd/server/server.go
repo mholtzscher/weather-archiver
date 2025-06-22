@@ -82,15 +82,15 @@ func main() {
 	log.Info().Msg("connected to postgres database")
 
 	queries := dal.New(conn)
-	fdServer := srvV1.NewFormulaDataServer(queries)
+	weatherServer := srvV1.NewWeatherServer(queries)
 
 	validator, err := validate.NewInterceptor()
 	if err != nil {
 		log.Fatal().Err(err).Msg("could not create validation interceptor")
 	}
 
-	service := vanguard.NewService(apiv1connect.NewFormulaDataServiceHandler(
-		fdServer,
+	service := vanguard.NewService(apiv1connect.NewWeatherServiceHandler(
+		weatherServer,
 		connect.WithInterceptors(validator),
 	),
 	)
