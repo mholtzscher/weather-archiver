@@ -15,7 +15,7 @@ service WeatherService {
   }
 
   rpc WeatherUndergroundUpload(WeatherUndergroundUploadRequest) returns (WeatherUndergroundUploadResponse) {
-    option (google.api.http) = {get: "/v1/weather/ecowitt"};
+    option (google.api.http) = {get: "/v1/weather/wunderground"};
   }
 }
 
@@ -27,6 +27,7 @@ message WeatherUndergroundUploadRequest {
   string id = 1 [(buf.validate.field).required = true];
   string password = 2 [(buf.validate.field).required = true];
   string dateutc = 3 [(buf.validate.field).required = true];
+  double tempf = 4;
 }
 
 message WeatherUndergroundUploadResponse {}

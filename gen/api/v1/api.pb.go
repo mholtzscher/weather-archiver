@@ -100,6 +100,7 @@ type WeatherUndergroundUploadRequest struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
 	Dateutc       string                 `protobuf:"bytes,3,opt,name=dateutc,proto3" json:"dateutc,omitempty"`
+	Tempf         float64                `protobuf:"fixed64,4,opt,name=tempf,proto3" json:"tempf,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -155,6 +156,13 @@ func (x *WeatherUndergroundUploadRequest) GetDateutc() string {
 	return ""
 }
 
+func (x *WeatherUndergroundUploadRequest) GetTempf() float64 {
+	if x != nil {
+		return x.Tempf
+	}
+	return 0
+}
+
 type WeatherUndergroundUploadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -197,15 +205,16 @@ const file_api_v1_api_proto_rawDesc = "" +
 	"\n" +
 	"\x10api/v1/api.proto\x12\x06api.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/api/annotations.proto\"\x16\n" +
 	"\x14EcowittUploadRequest\"\x17\n" +
-	"\x15EcowittUploadResponse\"\x7f\n" +
+	"\x15EcowittUploadResponse\"\x95\x01\n" +
 	"\x1fWeatherUndergroundUploadRequest\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\"\n" +
 	"\bpassword\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bpassword\x12 \n" +
-	"\adateutc\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\adateutc\"\"\n" +
-	" WeatherUndergroundUploadResponse2\x8b\x02\n" +
+	"\adateutc\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\adateutc\x12\x14\n" +
+	"\x05tempf\x18\x04 \x01(\x01R\x05tempf\"\"\n" +
+	" WeatherUndergroundUploadResponse2\x90\x02\n" +
 	"\x0eWeatherService\x12l\n" +
-	"\rEcowittUpload\x12\x1c.api.v1.EcowittUploadRequest\x1a\x1d.api.v1.EcowittUploadResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/v1/weather/ecowitt\x12\x8a\x01\n" +
-	"\x18WeatherUndergroundUpload\x12'.api.v1.WeatherUndergroundUploadRequest\x1a(.api.v1.WeatherUndergroundUploadResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/weather/ecowittB:Z8github.com/mholtzscher/weather-archiver/gen/api/v1;apiv1b\x06proto3"
+	"\rEcowittUpload\x12\x1c.api.v1.EcowittUploadRequest\x1a\x1d.api.v1.EcowittUploadResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/v1/weather/ecowitt\x12\x8f\x01\n" +
+	"\x18WeatherUndergroundUpload\x12'.api.v1.WeatherUndergroundUploadRequest\x1a(.api.v1.WeatherUndergroundUploadResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/weather/wundergroundB:Z8github.com/mholtzscher/weather-archiver/gen/api/v1;apiv1b\x06proto3"
 
 var (
 	file_api_v1_api_proto_rawDescOnce sync.Once
